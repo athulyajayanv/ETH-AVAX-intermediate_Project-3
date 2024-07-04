@@ -7,11 +7,17 @@ This Solidity program defines a custom ERC20 token contract that allows minting,
 This Solidity contract extends the ERC20 standard to create a custom token with additional features like minting, burning, and owner-only functions. It demonstrates basic Solidity syntax and usage of OpenZeppelin's ERC20 implementation.
 
 1. owner: A public variable that stores the address of the contract owner. The owner has special privileges such as minting new tokens and changing ownership.
+   
 2. onlyOwner: A modifier that restricts access to certain functions to the contract owner only. It checks if the caller's address (msg.sender) is the same as the owner's address.
+   
 3. constructor(string memory name, string memory symbol): The constructor initializes the contract with a name and a symbol for the token. It also sets the deployer's address as the owner of the contract.
+   
 4. mint(address to, uint256 amount): This function allows the owner to mint new tokens. It creates the specified amount of tokens and assigns them to the specified address (to). The function uses the onlyOwner modifier to ensure that only the owner can call it.
+   
 5. burn(uint256 amount): This function allows any token holder to burn (destroy) their own tokens. It reduces the caller's token balance by the specified amount and decreases the total supply of tokens.
+    
 6. transfer(address to, uint256 amount): This function overrides the default ERC20 transfer function. It transfers the specified amount of tokens from the caller's address (msg.sender) to the specified address (to). It returns true if the transfer is successful.
+    
 7. changeOwner(address newOwner): This function allows the current owner to transfer ownership of the contract to a new address. It checks that the new owner's address is not a zero address (an invalid address). The function uses the onlyOwner modifier to ensure that only the current owner can call it.
 
 ## Getting Started
